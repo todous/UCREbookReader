@@ -4,6 +4,9 @@ import com.parse.ParseUser;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -32,7 +35,7 @@ public class Welcome extends Activity {
 		// Set the currentUser String into TextView
 		txtuser.setText("You are logged in as " + struser);
 		
-		// Locate Button in welcome.xml
+		/* Locate Button in welcome.xml
 		logout = (Button) findViewById(R.id.logout);
 
 		// Logout Button Click Listener
@@ -43,6 +46,45 @@ public class Welcome extends Activity {
 				ParseUser.logOut();
 				finish();
 			}
-		});
+		});*/
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.action_search:
+	            openSearch();
+	            return true;
+	        case R.id.action_shop:
+	            openShop();
+	            return true;
+	        case R.id.action_logout:
+	        	Logout();
+	        	return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+	public void openSearch() {
+		//Add search code here
+	}
+	
+	public void openShop() {
+		//Add shop code here
+	}
+	
+	public void Logout() {
+		ParseUser.logOut();
+		finish();
 	}
 }

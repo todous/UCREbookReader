@@ -20,11 +20,11 @@
         android:layout_below="@+id/txtwelcome"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <!--Button
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/LogoutBtn" />
+        android:text="@string/LogoutBtn" />-->
 
 </RelativeLayout>
