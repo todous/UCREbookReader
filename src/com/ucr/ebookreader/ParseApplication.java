@@ -2,6 +2,7 @@ package com.ucr.ebookreader;
 
 import com.parse.Parse;
 import com.parse.ParseACL;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 import android.app.Application;
  
@@ -22,6 +23,8 @@ public class ParseApplication extends Application {
         defaultACL.setPublicReadAccess(true);
  
         ParseACL.setDefaultACL(defaultACL, true);
+        
+       
     }
  
 }

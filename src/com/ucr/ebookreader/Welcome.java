@@ -35,6 +35,8 @@ public class Welcome extends Activity {
 		// Set the currentUser String into TextView
 		txtuser.setText("You are logged in as " + struser);
 		
+		
+		
 		/* Locate Button in welcome.xml
 		logout = (Button) findViewById(R.id.logout);
 
