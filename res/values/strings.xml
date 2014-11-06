@@ -9,5 +9,8 @@
     <string name="SignupBtn">Sign Up</string>
     <string name="LogoutBtn">Log Out</string>
     <string name="Welcome">Welcome!</string>
+    <string name="action_shop">Shop</string>
+    <string name="action_search">Search</string>
+    <string name="action_logout">Log out</string>
 
 </resources>
