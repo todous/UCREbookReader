@@ -16,14 +16,16 @@ public final class R {
         public static final int globalforest=0x7f020002;
         public static final int hauntedway=0x7f020003;
         public static final int hp1=0x7f020004;
-        public static final int ic_action_logout=0x7f020005;
-        public static final int ic_action_search=0x7f020006;
-        public static final int ic_action_shop=0x7f020007;
-        public static final int let_the_storms_break=0x7f020008;
-        public static final int reckless_viscount=0x7f020009;
-        public static final int ucr=0x7f02000a;
+        public static final int ic_action_login=0x7f020005;
+        public static final int ic_action_logout=0x7f020006;
+        public static final int ic_action_search=0x7f020007;
+        public static final int ic_action_shop=0x7f020008;
+        public static final int let_the_storms_break=0x7f020009;
+        public static final int reckless_viscount=0x7f02000a;
+        public static final int ucr=0x7f02000b;
     }
     public static final class id {
+        public static final int action_login=0x7f060014;
         public static final int action_logout=0x7f060013;
         public static final int action_search=0x7f060011;
         public static final int action_shop=0x7f060012;
@@ -48,22 +50,25 @@ public final class R {
     public static final class layout {
         public static final int loginsignup=0x7f030000;
         public static final int welcome=0x7f030001;
+        public static final int welcomeanon=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f050000;
+        public static final int mainanon=0x7f050001;
     }
     public static final class string {
         public static final int LoginBtn=0x7f040003;
         public static final int LogoutBtn=0x7f040005;
-        public static final int Parse=0x7f04000b;
+        public static final int Parse=0x7f04000c;
         public static final int Password=0x7f040002;
         public static final int SignupBtn=0x7f040004;
         public static final int Username=0x7f040001;
         public static final int Welcome=0x7f040006;
+        public static final int action_login=0x7f04000a;
         public static final int action_logout=0x7f040009;
         public static final int action_search=0x7f040008;
         public static final int action_shop=0x7f040007;
         public static final int app_name=0x7f040000;
-        public static final int powered_by=0x7f04000a;
+        public static final int powered_by=0x7f04000b;
     }
 }

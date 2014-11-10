@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -107,5 +108,13 @@ public class LoginSignupActivity extends Activity {
 			}
 		});
 
+	}
+	
+	@Override  
+	public void onBackPressed() {
+	    super.onBackPressed();   
+	    Intent intent = new Intent(LoginSignupActivity.this, WelcomeAnon.class);
+		startActivity(intent);
+		finish();
 	}
 }
