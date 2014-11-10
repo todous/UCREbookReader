@@ -12,6 +12,7 @@
     <string name="action_shop">Shop</string>
     <string name="action_search">Search</string>
     <string name="action_logout">Log out</string>
+    <string name="action_login">Log in</string>
     <string name="powered_by">Powered by</string>
     <string name="Parse">Parse</string>
 

@@ -13,25 +13,19 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Welcome extends Activity {
-	
+public class WelcomeAnon extends Activity {
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Get the view from singleitemview.xml
-		setContentView(R.layout.welcome);
+		setContentView(R.layout.welcomeanon);
 		
-		// Retrieve current user from Parse.com
-		ParseUser currentUser = ParseUser.getCurrentUser();
-		
-		// Convert currentUser into String
-		String struser = currentUser.getUsername().toString();
-		
-		// Locate TextView in welcome.xml
+		// Locate TextView in welcomeanon.xml
 		TextView txtuser = (TextView) findViewById(R.id.txtuser);
 
 		// Set the currentUser String into TextView
-		txtuser.setText("You are logged in as " + struser);
+		txtuser.setText("You are not logged in");
 		
 		
 	}
@@ -40,7 +34,7 @@ public class Welcome extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu items for use in the action bar
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.main, menu);
+		inflater.inflate(R.menu.mainanon, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -51,11 +45,8 @@ public class Welcome extends Activity {
 	        case R.id.action_search:
 	            openSearch();
 	            return true;
-	        case R.id.action_shop:
-	            openShop();
-	            return true;
-	        case R.id.action_logout:
-	        	Logout();
+	        case R.id.action_login:
+	        	Login();
 	        	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -66,13 +57,8 @@ public class Welcome extends Activity {
 		//Add search code here
 	}
 	
-	public void openShop() {
-		//Add shop code here
-	}
-	
-	public void Logout() {
-		ParseUser.logOut();
-		Intent intent = new Intent(Welcome.this, WelcomeAnon.class);
+	public void Login() {
+		Intent intent = new Intent(WelcomeAnon.this, LoginSignupActivity.class);
 		startActivity(intent);
 		finish();
 	}
