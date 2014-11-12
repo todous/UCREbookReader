@@ -29,6 +29,8 @@
         <activity android:name="com.ucr.ebookreader.Welcome" >
         </activity>
         <activity android:name="WelcomeAnon"></activity>
+        <activity android:name="SearchActivity"></activity>
+        <activity android:name="BrowseActivity"></activity>
     </application>
 
 </manifest>

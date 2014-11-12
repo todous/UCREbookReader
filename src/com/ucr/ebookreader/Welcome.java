@@ -63,7 +63,9 @@ public class Welcome extends Activity {
 	}
 	
 	public void openSearch() {
-		//Add search code here
+		Intent intent = new Intent(Welcome.this, SearchActivity.class);
+		startActivity(intent);
+		finish();
 	}
 	
 	public void openShop() {

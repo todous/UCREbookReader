@@ -110,11 +110,11 @@ public class LoginSignupActivity extends Activity {
 
 	}
 	
-	@Override  
+	/*@Override  
 	public void onBackPressed() {
 	    super.onBackPressed();   
 	    Intent intent = new Intent(LoginSignupActivity.this, WelcomeAnon.class);
 		startActivity(intent);
 		finish();
-	}
+	}*/
 }

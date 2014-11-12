@@ -15,5 +15,13 @@
     <string name="action_login">Log in</string>
     <string name="powered_by">Powered by</string>
     <string name="Parse">Parse</string>
+	<string name="SearchBtn">Search</string>
+    <string name="TextHereView">Enter Text Here</string>
+    <string name="BrowseBtn">Browse By Categories</string>
+    <string name="Horror">Horror</string>
+    <string name="Action">Action</string>
+    <string name="Biology">Biology</string>
+    <string name="Romance">Romance</string>
+    <string name="Fantasy">Fantasy</string>
 
 </resources>

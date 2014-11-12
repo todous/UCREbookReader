@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/searchtext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/TextHereView"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/SearchBtn" />
+
+    <Button
+        android:id="@+id/browse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/BrowseBtn" />
+
+    <RelativeLayout
+        android:layout_width="193dp"
+        android:layout_height="156dp" >
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="143dp"
+            android:layout_alignBottom="@+id/imageButton1"
+            android:layout_alignRight="@+id/imageButton1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/flintlord" />
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="116dp"
+            android:layout_height="141dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/hp1" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="116dp"
+            android:layout_height="160dp"
+            android:layout_alignBottom="@+id/imageButton5"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/let_the_storms_break" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="109dp"
+            android:layout_height="138dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/reckless_viscount" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="135dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/globalforest" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="120dp"
+            android:layout_height="112dp"
+            android:layout_alignBottom="@+id/imageButton5"
+            android:layout_alignParentTop="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/hauntedway" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtbook"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.40" />
+
+</LinearLayout>

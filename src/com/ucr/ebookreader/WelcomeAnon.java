@@ -54,7 +54,9 @@ public class WelcomeAnon extends Activity {
 	}
 	
 	public void openSearch() {
-		//Add search code here
+		Intent intent = new Intent(WelcomeAnon.this, SearchActivity.class);
+		startActivity(intent);
+		finish();
 	}
 	
 	public void Login() {
