@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.cs180ereader.DisplayPdf" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        android:showAsAction="never"/>
+    
+    <item 
+        android:id="@+id/action_previous"
+        android:icon="@drawable/ic_action_previous_item"
+        android:title="@string/previous_page"
+        android:showAsAction="always" />
+    
+    <item  
+        android:id="@+id/action_next"
+        android:icon="@drawable/ic_action_next_item"
+        android:title="@string/next_page"
+        android:showAsAction="always" />
+    
+    <item 
+        android:id="@+id/action_saveBookmark"
+        android:icon="@drawable/ic_action_save_bookmark"
+        android:title="@string/next_page"
+        android:showAsAction="always" />
+    
+    <item 
+        android:id="@+id/action_goToBookmark"
+        android:icon="@drawable/ic_action_go_bookmark"
+        android:title="@string/next_page"
+        android:showAsAction="always" />
+  
+</menu>
