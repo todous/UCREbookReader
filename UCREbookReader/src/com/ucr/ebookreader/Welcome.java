@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
 import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
@@ -22,6 +21,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -56,6 +56,23 @@ public class Welcome extends Activity {
 		txtuser.setText("You are logged in as " + struser);
 		
 		createButtons();
+		Button subscription = (Button) findViewById(R.id.button1);
+		subscription.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if(ParseUser.getCurrentUser().getBoolean("monthlySubscription")) {
+			    	Toast.makeText(Welcome.this, "Subscription already purchased!", Toast.LENGTH_SHORT).show();
+			    }
+				else {
+					Intent intent = new Intent(Welcome.this,PurchaseSubscription.class);
+					startActivity(intent);
+				}
+			}
+		});
+		
+		
 		
 	}
 	

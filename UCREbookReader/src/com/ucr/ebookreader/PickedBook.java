@@ -39,9 +39,14 @@ public class PickedBook extends Activity {
 	TextView textField;
 	RatingBar rb;
 	ListView lv;
-	Button submitReview;
+	Button submitReview, buy, open, sample;
 	EditText rev;
 	Boolean loggedIn = false;
+	
+	
+	
+	
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -60,11 +65,17 @@ public class PickedBook extends Activity {
 			loggedIn = true;
 		}
 		
+		
+		
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Books");
 		query.getInBackground(bookId, new GetCallback<ParseObject>() {
 			@Override
 			public void done(ParseObject book, ParseException e) {
 				if (e == null) {
+					
+					//update number of times book was viewed
+					book.increment("timesViewed");
+					book.saveInBackground();
 					//Extract book info
 					title = book.getString("title");
 					author = book.getString("author");
@@ -111,9 +122,164 @@ public class PickedBook extends Activity {
 					submitReview.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View v) {
-							sendReview();
+							//check if user has purchased subscription
+							if(ParseUser.getCurrentUser().getBoolean("monthlySubscription")) {
+								sendReview();
+							   }
+							else {
+							//check if user has purchased book
+							ParseQuery<ParseObject> checkPurchase = ParseQuery.getQuery("PurchasedBooks");
+							   checkPurchase.whereEqualTo("bookid", bookId);
+							   checkPurchase.whereEqualTo("user", ParseUser.getCurrentUser().getUsername());
+							   checkPurchase.findInBackground(new FindCallback<ParseObject>() {
+								     public void done(List<ParseObject> objects, ParseException e) {
+								         if (e == null) {
+								             if (objects.isEmpty()) {
+								            	 Toast.makeText(PickedBook.this, "Book not purchased!", Toast.LENGTH_SHORT).show();								            	   
+								             }
+								             else {
+								            	 sendReview();
+								             }
+								         } else {
+								             
+								         }
+								     }
+							   });
+						      }
 						}
 					});
+					
+					buy = (Button) findViewById(R.id.button1);
+					
+					buy.setOnClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View v) {
+						   //check if user has purchased monthly subscription
+						   if(ParseUser.getCurrentUser().getBoolean("monthlySubscription")) {
+							   Toast.makeText(PickedBook.this, "Subscription already purchased!", Toast.LENGTH_SHORT).show();
+						   }
+						   else {
+						   //check if user has purchased book already
+						   ParseQuery<ParseObject> checkPurchase = ParseQuery.getQuery("PurchasedBooks");
+						   checkPurchase.whereEqualTo("bookid", bookId);
+						   checkPurchase.whereEqualTo("user", ParseUser.getCurrentUser().getUsername());
+						   checkPurchase.findInBackground(new FindCallback<ParseObject>() {
+							     public void done(List<ParseObject> objects, ParseException e) {
+							         if (e == null) {
+							             if (objects.isEmpty()) {
+							            	   //go to payment screen
+							            	   Intent intent = new Intent(PickedBook.this, PaymentActivity.class);
+											   intent.putExtra("passedId", bookId);
+											   startActivity(intent);
+											   //finish();
+							             }
+							             else {
+							            	  // user has already purchased book
+							            	  Toast.makeText(PickedBook.this, "Book already purchased!", Toast.LENGTH_SHORT).show();
+							             }
+							         } else {
+							             
+							         }
+							     }
+						   });
+						   
+			 
+						  }
+						}
+					});
+					
+					open = (Button) findViewById(R.id.button3);
+						
+					open.setOnClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View v) {
+							//check if user has purchased monthly subscription
+							if(ParseUser.getCurrentUser().getBoolean("monthlySubscription")) {
+								   Toast.makeText(PickedBook.this, "Subscription purchased", Toast.LENGTH_SHORT).show();
+								   ParseQuery<ParseObject> book = ParseQuery.getQuery("Books");
+					            	 book.getInBackground(bookId, new GetCallback<ParseObject>() {
+					            		 public void done(ParseObject object, ParseException e) {
+									         if (e == null) {
+									        	 //get pdf of book
+									        	 String bookUrl = object.getParseFile("text").getUrl();
+									        	//put code here
+									         }
+									         else {
+									        	 
+									         }
+					            	 }
+					                });
+							   }
+							else {
+						   //check if user has purchased book
+						   ParseQuery<ParseObject> checkPurchase = ParseQuery.getQuery("PurchasedBooks");
+						   checkPurchase.whereEqualTo("bookid", bookId);
+						   checkPurchase.whereEqualTo("user", ParseUser.getCurrentUser().getUsername());
+						   checkPurchase.findInBackground(new FindCallback<ParseObject>() {
+							     public void done(List<ParseObject> objects, ParseException e) {
+							         if (e == null) {
+							             if (objects.isEmpty()) {
+							            	 //user has not purchased book yet
+							            	 Toast.makeText(PickedBook.this, "Book not purchased!", Toast.LENGTH_SHORT).show();
+							            	   
+							             }
+							             else {		
+							            	 //get pdf url of book
+							            	 ParseQuery<ParseObject> book = ParseQuery.getQuery("Books");
+							            	 book.getInBackground(bookId, new GetCallback<ParseObject>() {
+							            		 public void done(ParseObject object, ParseException e) {
+											         if (e == null) {
+											        	 String bookUrl = object.getParseFile("text").getUrl();
+											        	 Toast.makeText(PickedBook.this, "Book purchased", Toast.LENGTH_SHORT).show();
+											        	 //put code here
+											         }
+											         else {
+											        	 
+											         }
+							            	 }
+							                });
+							             }
+							         } 
+							             else {
+							        
+							             
+							         }
+							     }
+						   });
+						   
+			 
+						}
+						}
+					});
+					
+					sample = (Button) findViewById(R.id.button4);
+					
+					sample.setOnClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View v) {
+						   			         //get pdf url of book sample   
+							            	 ParseQuery<ParseObject> book = ParseQuery.getQuery("Books");
+							            	 book.getInBackground(bookId, new GetCallback<ParseObject>() {
+							            		 public void done(ParseObject object, ParseException e) {
+											         if (e == null) {
+											        	 String sampleUrl = object.getParseFile("sample").getUrl();
+											        	 Toast.makeText(PickedBook.this, "Sample", Toast.LENGTH_SHORT).show();
+											        	 //put code here
+											         }
+											         else {
+											        	 
+											         }
+							            	 }
+							                });
+							             }
+							         
+							     });
+						  
+						   
+			 
+						
+			
+					
 					
 					//Initialize Review section
 					rev = (EditText) findViewById(R.id.editText1);
@@ -128,6 +294,8 @@ public class PickedBook extends Activity {
 		});
 	}
 	
+	
+
 	public void editRatingData(final float rating) {
 		if(loggedIn) {
 			ParseQuery<ParseObject> ratingQuery = ParseQuery.getQuery("UserRandR");

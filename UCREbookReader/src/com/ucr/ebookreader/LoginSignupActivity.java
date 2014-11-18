@@ -1,5 +1,6 @@
 package com.ucr.ebookreader;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -104,6 +105,7 @@ public class LoginSignupActivity extends Activity {
 					ParseUser user = new ParseUser();
 					user.setUsername(usernametxt);
 					user.setPassword(passwordtxt);
+					user.put("monthlySubscription", false);
 					user.signUpInBackground(new SignUpCallback() {
 						public void done(ParseException e) {
 							if (e == null) {
@@ -125,7 +127,7 @@ public class LoginSignupActivity extends Activity {
 
 	}
 	
-	@Override  
+	@SuppressLint("NewApi") @Override  
 	public void onBackPressed() {
 	    super.onBackPressed();   
 	    Intent intent = new Intent(LoginSignupActivity.this, WelcomeAnon.class);

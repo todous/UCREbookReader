@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import com.parse.ParseUser;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -44,7 +43,7 @@ public class WelcomeAnon extends Activity {
 		TextView txtuser = (TextView) findViewById(R.id.txtuser);
 
 		// Set the currentUser String into TextView
-		txtuser.setText("You are not logged in");	
+		txtuser.setText("You are not logged in.");	
 	}
 	
 	@Override

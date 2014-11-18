@@ -14,9 +14,9 @@ public final class R {
 		public static final int bookmark_dialog_goto_button = 0x7f080021;
 		public static final int bookmark_dialog_set_button = 0x7f080020;
 		public static final int epub_title = 0x7f080016;
-		public static final int menu_bookmark = 0x7f080036;
-		public static final int menu_chapters = 0x7f080035;
-		public static final int menu_pick_epub = 0x7f080034;
+		public static final int menu_bookmark = 0x7f080038;
+		public static final int menu_chapters = 0x7f080037;
+		public static final int menu_pick_epub = 0x7f080036;
 	}
 	public static final class layout {
 		public static final int activity_main = 0x7f030003;

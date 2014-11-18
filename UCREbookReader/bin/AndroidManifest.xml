@@ -37,6 +37,8 @@
         <activity android:name="DisplayTxt"></activity>
         <activity android:name="PickedBook"></activity>
         <activity android:name="ScanActivity"></activity>
+        <activity android:name="PaymentActivity"></activity>
+        <activity android:name="PurchaseSubscription"></activity>
     </application>
 
 </manifest>
