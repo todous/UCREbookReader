@@ -27,6 +27,8 @@ import android.widget.Toast;
 
 public class PickedBook extends Activity {
 	
+	public final static String EXTRA_FILE = "com.ucr.ebookreader.MESSAGE";
+	
 	String bookId;
 	String title;
 	String author;
@@ -195,14 +197,16 @@ public class PickedBook extends Activity {
 						public void onClick(View v) {
 							//check if user has purchased monthly subscription
 							if(ParseUser.getCurrentUser().getBoolean("monthlySubscription")) {
-								   Toast.makeText(PickedBook.this, "Subscription purchased", Toast.LENGTH_SHORT).show();
 								   ParseQuery<ParseObject> book = ParseQuery.getQuery("Books");
 					            	 book.getInBackground(bookId, new GetCallback<ParseObject>() {
 					            		 public void done(ParseObject object, ParseException e) {
 									         if (e == null) {
 									        	 //get pdf of book
 									        	 String bookUrl = object.getParseFile("text").getUrl();
-									        	//put code here
+									        	 //display book
+									        	 Intent intent = new Intent(PickedBook.this, DisplayPdf.class);
+										         intent.putExtra(EXTRA_FILE, bookUrl);
+										         startActivity(intent);
 									         }
 									         else {
 									        	 
@@ -229,9 +233,11 @@ public class PickedBook extends Activity {
 							            	 book.getInBackground(bookId, new GetCallback<ParseObject>() {
 							            		 public void done(ParseObject object, ParseException e) {
 											         if (e == null) {
-											        	 String bookUrl = object.getParseFile("text").getUrl();
-											        	 Toast.makeText(PickedBook.this, "Book purchased", Toast.LENGTH_SHORT).show();
-											        	 //put code here
+											        	 String bookUrl = object.getParseFile("text").getUrl();	
+											        	 //display book
+											        	 Intent intent = new Intent(PickedBook.this, DisplayPdf.class);
+												         intent.putExtra(EXTRA_FILE, bookUrl);
+												         startActivity(intent);
 											         }
 											         else {
 											        	 
@@ -263,8 +269,9 @@ public class PickedBook extends Activity {
 							            		 public void done(ParseObject object, ParseException e) {
 											         if (e == null) {
 											        	 String sampleUrl = object.getParseFile("sample").getUrl();
-											        	 Toast.makeText(PickedBook.this, "Sample", Toast.LENGTH_SHORT).show();
-											        	 //put code here
+											        	 Intent intent = new Intent(PickedBook.this, DisplayPdf.class);
+												         intent.putExtra(EXTRA_FILE, sampleUrl);
+												         startActivity(intent);
 											         }
 											         else {
 											        	 
