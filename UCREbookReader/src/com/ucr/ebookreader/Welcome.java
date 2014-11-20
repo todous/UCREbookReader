@@ -80,7 +80,7 @@ public class Welcome extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu items for use in the action bar
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.main, menu);
+		inflater.inflate(R.menu.welcome, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -91,9 +91,6 @@ public class Welcome extends Activity {
 	        case R.id.action_search:
 	            openSearch();
 	            return true;
-	        //case R.id.action_shop:
-	            //openShop();
-	            //return true;
 	        case R.id.action_logout:
 	        	Logout();
 	        	return true;
@@ -112,14 +109,10 @@ public class Welcome extends Activity {
 		Intent intent = new Intent(Welcome.this, SearchActivity.class);
 		intent.putExtra("lastintent", "welcome");
 		startActivity(intent);
-		//finish();
-	}
-	
-	public void openShop() {
-		//Add shop code here
 	}
 	
 	public void Logout() {
+		Toast.makeText(Welcome.this, "Successfully logged out", Toast.LENGTH_SHORT).show();
 		ParseUser.logOut();
 		Intent intent = new Intent(Welcome.this, WelcomeAnon.class);
 		startActivity(intent);

@@ -13,6 +13,9 @@ import com.parse.ParseUser;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -299,6 +302,54 @@ public class PickedBook extends Activity {
 				}
 			}
 		});
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.action_search:
+                openSearch();
+                return true;
+	        case R.id.action_shop:
+	            openShop();
+	            return true;
+	        case R.id.action_logout:
+	        	Logout();
+	        	return true;
+	        case R.id.action_scan:
+	    		Intent intent = new Intent(PickedBook.this, ScanActivity.class);
+	    		startActivity(intent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+	public void openSearch() {
+		Intent intent = new Intent(PickedBook.this, SearchActivity.class);
+		startActivity(intent);
+	}
+	
+	public void openShop() {
+		Intent intent = new Intent(PickedBook.this, Welcome.class);
+		startActivity(intent);
+		
+	}
+	
+	public void Logout() {
+		Toast.makeText(PickedBook.this, "Successfully logged out", Toast.LENGTH_SHORT).show();
+		ParseUser.logOut();
+		Intent intent = new Intent(PickedBook.this, WelcomeAnon.class);
+		startActivity(intent);
 	}
 	
 	

@@ -37,6 +37,7 @@
     <string name="title_activity_list_chapters"></string>
     <string name="menu_chapters">Chapters</string>
     <string name="menu_bookmark">Bookmark</string>
+    <string name="action_scan">Scan Device</string>
 
     
 

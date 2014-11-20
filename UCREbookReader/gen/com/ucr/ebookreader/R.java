@@ -45,10 +45,10 @@ public final class R {
         public static final int action_next=0x7f08003b;
         public static final int action_previous=0x7f08003a;
         public static final int action_saveBookmark=0x7f08003c;
-        public static final int action_scan=0x7f08003e;
-        public static final int action_search=0x7f08003f;
+        public static final int action_scan=0x7f080040;
+        public static final int action_search=0x7f08003e;
         public static final int action_settings=0x7f080039;
-        public static final int action_shop=0x7f080040;
+        public static final int action_shop=0x7f08003f;
         public static final int bookmark_dialog_goto_button=0x7f080021;
         public static final int bookmark_dialog_set_button=0x7f080020;
         public static final int browse=0x7f080031;
@@ -126,6 +126,8 @@ public final class R {
         public static final int display_pdf=0x7f070002;
         public static final int main=0x7f070003;
         public static final int mainanon=0x7f070004;
+        public static final int searchmenu=0x7f070005;
+        public static final int welcome=0x7f070006;
     }
     public static final class string {
         public static final int Action=0x7f040025;
@@ -145,6 +147,7 @@ public final class R {
         public static final int Welcome=0x7f04001a;
         public static final int action_login=0x7f04001e;
         public static final int action_logout=0x7f04001d;
+        public static final int action_scan=0x7f040033;
         public static final int action_search=0x7f04001c;
         public static final int action_settings=0x7f040029;
         public static final int action_shop=0x7f04001b;

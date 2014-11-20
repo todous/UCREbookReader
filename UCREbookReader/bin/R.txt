@@ -26,10 +26,10 @@ int id action_logout 0x7f080041
 int id action_next 0x7f08003b
 int id action_previous 0x7f08003a
 int id action_saveBookmark 0x7f08003c
-int id action_scan 0x7f08003e
-int id action_search 0x7f08003f
+int id action_scan 0x7f080040
+int id action_search 0x7f08003e
 int id action_settings 0x7f080039
-int id action_shop 0x7f080040
+int id action_shop 0x7f08003f
 int id bookmark_dialog_goto_button 0x7f080021
 int id bookmark_dialog_set_button 0x7f080020
 int id browse 0x7f080031
@@ -103,6 +103,8 @@ int menu display_epub_web 0x7f070001
 int menu display_pdf 0x7f070002
 int menu main 0x7f070003
 int menu mainanon 0x7f070004
+int menu searchmenu 0x7f070005
+int menu welcome 0x7f070006
 int string Action 0x7f040025
 int string Biology 0x7f040026
 int string BrowseBtn 0x7f040023
@@ -120,6 +122,7 @@ int string Username 0x7f040015
 int string Welcome 0x7f04001a
 int string action_login 0x7f04001e
 int string action_logout 0x7f04001d
+int string action_scan 0x7f040033
 int string action_search 0x7f04001c
 int string action_settings 0x7f040029
 int string action_shop 0x7f04001b

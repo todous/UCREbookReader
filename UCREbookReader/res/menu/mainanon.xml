@@ -3,7 +3,7 @@
     
     <item android:id="@+id/action_scan"
           android:icon="@drawable/ic_action_scan"
-          android:title="@string/action_search"
+          android:title="@string/action_scan"
           android:showAsAction="ifRoom" />
     
     <item android:id="@+id/action_search"

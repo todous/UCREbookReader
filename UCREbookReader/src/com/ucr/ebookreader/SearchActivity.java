@@ -6,6 +6,9 @@ import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,6 +22,7 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 public class SearchActivity extends Activity 
 {
@@ -49,11 +53,12 @@ public class SearchActivity extends Activity
 		super.onCreate(savedInstanceState);
 		//Get the layout from the search.xml
 		setContentView(R.layout.search);
-		
+		/*
 		Bundle extras = getIntent().getExtras();
 		if(extras != null){
 			lastintent = extras.getString("lastintent");
 		}
+		*/
 		
 		search = (EditText) findViewById(R.id.searchtext);
 		search_button = (Button) findViewById(R.id.search);
@@ -179,24 +184,66 @@ public class SearchActivity extends Activity
 			{
 				Intent intent = new Intent(SearchActivity.this, BrowseActivity.class);
 				startActivity(intent);
-				finish();
 			}
 		});	
 		
 	}
 	
-	@Override  
+/*	@Override  
 	public void onBackPressed() {
 	    super.onBackPressed(); 
 	    if (lastintent.equals("welcome")){
 	    	Intent intent = new Intent(SearchActivity.this, Welcome.class);
 	    	startActivity(intent);
-	    	finish();
+	    	//finish();
 	    }
 	    else {
 	    	Intent intent = new Intent(SearchActivity.this, WelcomeAnon.class);
 	    	startActivity(intent);
-	    	finish();
+	    	//finish();
 	    }
+	}
+	*/
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.searchmenu, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.action_shop:
+	            openShop();
+	            return true;
+	        case R.id.action_logout:
+	        	Logout();
+	        	return true;
+	        case R.id.action_scan:
+	    		Intent intent = new Intent(SearchActivity.this, ScanActivity.class);
+	    		//intent.putExtra("lastintent", "welcome");
+	    		startActivity(intent);
+	            //Scan();
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+	public void openShop() {
+		Intent intent = new Intent(SearchActivity.this, Welcome.class);
+		startActivity(intent);
+	}
+	
+	
+	public void Logout() {
+		Toast.makeText(SearchActivity.this, "Successfully logged out", Toast.LENGTH_SHORT).show();
+		ParseUser.logOut();
+		Intent intent = new Intent(SearchActivity.this, WelcomeAnon.class);
+		startActivity(intent);
 	}
 }
