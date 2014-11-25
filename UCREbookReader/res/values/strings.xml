@@ -38,6 +38,9 @@
     <string name="menu_chapters">Chapters</string>
     <string name="menu_bookmark">Bookmark</string>
     <string name="action_scan">Scan Device</string>
+    <string name="TxtFont">Font</string>
+    <string name="TxtSize">Size</string>
+    <string name="BackgroundColor">Color</string>
 
     
 

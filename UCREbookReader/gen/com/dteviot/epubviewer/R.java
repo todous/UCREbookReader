@@ -8,49 +8,49 @@ package com.dteviot.epubviewer;
 
 public final class R {
 	public static final class drawable {
-		public static final int ic_launcher = 0x7f02000e;
+		public static final int ic_launcher = 0x7f020011;
 	}
 	public static final class id {
-		public static final int bookmark_dialog_goto_button = 0x7f080021;
-		public static final int bookmark_dialog_set_button = 0x7f080020;
-		public static final int epub_title = 0x7f080016;
-		public static final int menu_bookmark = 0x7f080038;
-		public static final int menu_chapters = 0x7f080037;
-		public static final int menu_pick_epub = 0x7f080036;
+		public static final int bookmark_dialog_goto_button = 0x7f0b0022;
+		public static final int bookmark_dialog_set_button = 0x7f0b0021;
+		public static final int epub_title = 0x7f0b0017;
+		public static final int menu_bookmark = 0x7f0b0039;
+		public static final int menu_chapters = 0x7f0b0038;
+		public static final int menu_pick_epub = 0x7f0b0037;
 	}
 	public static final class layout {
-		public static final int activity_main = 0x7f030003;
-		public static final int epub_list_item = 0x7f030005;
-		public static final int options_menu = 0x7f030007;
+		public static final int activity_main = 0x7f030004;
+		public static final int epub_list_item = 0x7f030006;
+		public static final int options_menu = 0x7f030008;
 	}
 	public static final class menu {
-		public static final int activity_main = 0x7f070000;
+		public static final int activity_main = 0x7f0a0000;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f040000;
-		public static final int bookmark_dialog_goto_button = 0x7f04000f;
-		public static final int bookmark_dialog_set_button = 0x7f04000e;
-		public static final int bookmark_dialog_start_speech = 0x7f040010;
-		public static final int bookmark_dialog_stop_speech = 0x7f040011;
-		public static final int bookmark_dialog_title = 0x7f04000d;
-		public static final int end_of_book = 0x7f04000c;
-		public static final int epub_title = 0x7f040008;
-		public static final int hello_world = 0x7f040001;
-		public static final int menu_bookmark = 0x7f040005;
-		public static final int menu_chapters = 0x7f040004;
-		public static final int menu_pick_epub = 0x7f040003;
-		public static final int menu_settings = 0x7f040002;
-		public static final int no_book_selected = 0x7f040009;
-		public static final int no_epub_found = 0x7f040006;
-		public static final int not_implemented = 0x7f04000a;
-		public static final int options_menu_title = 0x7f040012;
-		public static final int sd_card_not_mounted = 0x7f040007;
-		public static final int something_is_badly_broken = 0x7f04000b;
-		public static final int table_of_contents_missing = 0x7f040014;
-		public static final int text_to_speech_not_installed = 0x7f040013;
+		public static final int app_name = 0x7f050000;
+		public static final int bookmark_dialog_goto_button = 0x7f05000f;
+		public static final int bookmark_dialog_set_button = 0x7f05000e;
+		public static final int bookmark_dialog_start_speech = 0x7f050010;
+		public static final int bookmark_dialog_stop_speech = 0x7f050011;
+		public static final int bookmark_dialog_title = 0x7f05000d;
+		public static final int end_of_book = 0x7f05000c;
+		public static final int epub_title = 0x7f050008;
+		public static final int hello_world = 0x7f050001;
+		public static final int menu_bookmark = 0x7f050005;
+		public static final int menu_chapters = 0x7f050004;
+		public static final int menu_pick_epub = 0x7f050003;
+		public static final int menu_settings = 0x7f050002;
+		public static final int no_book_selected = 0x7f050009;
+		public static final int no_epub_found = 0x7f050006;
+		public static final int not_implemented = 0x7f05000a;
+		public static final int options_menu_title = 0x7f050012;
+		public static final int sd_card_not_mounted = 0x7f050007;
+		public static final int something_is_badly_broken = 0x7f05000b;
+		public static final int table_of_contents_missing = 0x7f050014;
+		public static final int text_to_speech_not_installed = 0x7f050013;
 	}
 	public static final class style {
-		public static final int AppBaseTheme = 0x7f050000;
-		public static final int AppTheme = 0x7f050001;
+		public static final int AppBaseTheme = 0x7f060000;
+		public static final int AppTheme = 0x7f060001;
 	}
 }

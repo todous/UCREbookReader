@@ -5,18 +5,33 @@
 
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
         android:title="@string/action_settings"
         android:showAsAction="never"/>
     
     <item android:id="@+id/menu_chapters"
         android:title="@string/menu_chapters"
-        android:orderInCategory="110"
         android:showAsAction="ifRoom" />
     
     <item android:id="@+id/menu_bookmark"
         android:title="@string/menu_bookmark"
-        android:orderInCategory="200"
+        android:showAsAction="ifRoom" />
+    
+    <item 
+        android:id="@+id/action_change_txt_size"
+        android:icon="@drawable/ic_action_change_txt_size"
+        android:title="@string/TxtSize"
+        android:showAsAction="ifRoom" />
+    
+    <item 
+        android:id="@+id/action_change_txt_font"
+        android:icon="@drawable/ic_action_change_txt_font"
+        android:title="@string/TxtFont"
+        android:showAsAction="ifRoom" />
+    
+   <item 
+        android:id="@+id/action_change_background_color"
+        android:icon="@drawable/ic_action_change_background_color"
+        android:title="@string/BackgroundColor"
         android:showAsAction="ifRoom" />
 
 </menu>

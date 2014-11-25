@@ -2,6 +2,7 @@ package com.ucr.ebookreader;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -25,6 +26,18 @@ public class DisplayEpubWeb extends Activity implements IResourceSource{
 	
     private final static int LIST_CHAPTER_ACTIVITY_ID = 1; 
     private final static int CHECK_TTS_ACTIVITY_ID = 2; 
+    
+    private final static int CHANGE_SIZE = 3; 
+    private final static int CHANGE_FONT = 4; 
+    private final static int CHANGE_BACKGROUND = 5; 
+    
+    private final static int BLACK = 0xff000000;
+    public final static int DARKGRAY = 0xff444444;
+    public final static int GREY = 0xff888888;
+    public final static int WHITE = 0xffffffff;
+    public final static int MAROON = 0xff800000;
+    public final static int NAVY = 0xff000080;
+    public final static int OLIVE = 0xff808000;
  
 	private EpubWebView EpubView;
 	
@@ -75,10 +88,19 @@ public class DisplayEpubWeb extends Activity implements IResourceSource{
         // item select 
         switch (item.getItemId()) {
         case R.id.menu_bookmark:
-            launchBookmarkDialog();
+            launchBookmarkDialog(); 
             return true;
         case R.id.menu_chapters:
             launchChaptersList();
+            return true;
+        case R.id.action_change_txt_size:
+        	launchChangeSize();
+            return true;
+        case R.id.action_change_txt_font:
+        	launchChangeFont();
+            return true;
+        case R.id.action_change_background_color:
+        	launchChangeBackground();
             return true;
         default:
             return super.onOptionsItemSelected(item);
@@ -88,6 +110,7 @@ public class DisplayEpubWeb extends Activity implements IResourceSource{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        String item;
         if (requestCode == CHECK_TTS_ACTIVITY_ID) {
             return;
         }
@@ -97,6 +120,58 @@ public class DisplayEpubWeb extends Activity implements IResourceSource{
                 case LIST_CHAPTER_ACTIVITY_ID:
         	        Uri chapterUri = data.getParcelableExtra(ListChaptersActivity.CHAPTER_EXTRA);
         	        EpubView.loadChapter(chapterUri);
+                    break;
+                case CHANGE_SIZE:
+                	item = data.getStringExtra(ListTextSize.TEXT_SIZE);
+                	EpubView.clearCache(false);
+     		        EpubView.loadUrl("javascript:(document.body.style.fontSize ='"+item+"'pt);");
+                    break;
+                case CHANGE_FONT:
+                	item = data.getStringExtra(ListTextFont.TEXT_FONT);
+     		        String font = item;
+     	            Typeface f = Typeface.createFromAsset((DisplayEpubWeb.this).getAssets(), "fonts/"+font);
+     	            EpubView.clearCache(false);
+     	            EpubView.loadUrl("javascript:(document.body.style.font ='"+font+"');");
+                    break;
+                case CHANGE_BACKGROUND:
+                	item = data.getStringExtra(ListTextBackground.BACKGROUND_COLOR);
+                	EpubView.clearCache(false);
+                	if(item.equals("black"))
+                	{
+                		EpubView.loadUrl("javascript:(document.body.style.color ='white');");
+                		EpubView.loadUrl("javascript:(document.body.style.backgroundColor ='"+item+"');");
+                	}
+                	else if(item.equals("darkgray"))
+                	{
+                		EpubView.loadUrl("javascript:(document.body.style.color ='white');");
+                		EpubView.loadUrl("javascript:(document.body.style.backgroundColor ='"+item+"');");
+
+                	}
+                	else if(item.equals("grey"))
+    	            {
+                		EpubView.loadUrl("javascript:(document.body.style.color ='black');");
+                		EpubView.loadUrl("javascript:(document.body.style.backgroundColor ='"+item+"');");
+    	            }
+                	else if(item.equals("white"))
+    	            {
+                		EpubView.loadUrl("javascript:(document.body.style.color ='black');");
+                		EpubView.loadUrl("javascript:(document.body.style.backgroundColor ='"+item+"');");
+    	            }
+                	else if(item.equals("maroon"))
+    	            {
+                		EpubView.loadUrl("javascript:(document.body.style.color ='black');");
+                		EpubView.loadUrl("javascript:(document.body.style.backgroundColor ='"+item+"');");
+    	            }
+                	else if(item.equals("navy"))
+    	            {
+                		EpubView.loadUrl("javascript:(document.body.style.color ='white');");
+                		EpubView.loadUrl("javascript:(document.body.style.backgroundColor ='"+item+"');");
+    	            }
+                	else if(item.equals("olive"))
+    	            {
+                		EpubView.loadUrl("javascript:(document.body.style.color ='black');");
+                		EpubView.loadUrl("javascript:(document.body.style.backgroundColor ='"+item+"');");
+    	            } 
                     break;
             }
         }
@@ -158,4 +233,23 @@ public class DisplayEpubWeb extends Activity implements IResourceSource{
 	    public ResourceResponse fetch(Uri resourceUri) {
 	        return EpubView.getBook().fetch(resourceUri);
 	    }
+		
+	    void launchChangeSize()
+	    {
+	    	Intent changeSize = new Intent(this, ListTextSize.class);
+	        startActivityForResult(changeSize, CHANGE_SIZE);
+	    }
+	    
+	    void launchChangeFont()
+	    {
+	    	Intent changeFont = new Intent(this, ListTextFont.class);
+	        startActivityForResult(changeFont, CHANGE_FONT);
+	    }
+	    
+	    void launchChangeBackground()
+	    {
+	    	Intent changeBackground = new Intent(this, ListTextBackground.class);
+	        startActivityForResult(changeBackground, CHANGE_BACKGROUND);
+	    }
+		
 }
